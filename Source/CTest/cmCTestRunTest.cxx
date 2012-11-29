@@ -210,6 +210,11 @@ bool cmCTestRunTest::EndTest(size_t completed, size_t total, bool started)
       this->TestResult.Status = cmCTestTestHandler::COMPLETED;
       cmCTestLog(this->CTest, HANDLER_OUTPUT, "   Passed  " );
       }
+    else if(retVal == 77)
+      {
+      this->TestResult.Status = cmCTestTestHandler::NOT_RUN;
+      cmCTestLog(this->CTest, HANDLER_OUTPUT, "***Not Run ");
+      }
     else
       {
       this->TestResult.Status = cmCTestTestHandler::FAILED;
